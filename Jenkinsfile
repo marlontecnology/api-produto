@@ -5,7 +5,7 @@ pipeline {
         stage ('Build Image') {   //Stage para construção da imagem Docker
             steps {               // Declarando steps: Passos de execução do estágio
                 script {
-                    dockerapp = docker.build("marloncoutinho/api-produto", '-f ./src/Dockerfile ./src')
+                    dockerapp = docker.build("marloncoutinho/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
                   }
                 }                
             }
