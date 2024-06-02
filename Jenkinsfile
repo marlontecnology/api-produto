@@ -1,7 +1,7 @@
 pipeline {
     agent any        // Declararando qual agente vai utilizar. para usar qualquer agente, foi usado "any"
 
-    stages {          // Declarando os stages, que sao as etapas (estágios) da pipeline
+    stages {          // Declarando os stages, que são as etapas (estágios) da pipeline
         stage ('Build Image') {   //Stage para construção da imagem Docker
             steps {               // Declarando steps: Passos de execução do estágio
                 script {
@@ -15,7 +15,7 @@ pipeline {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
                          dockerapp.push('latest')
-                         dockerapp.push('${env.BUILD_ID}')
+                         dockerapp.push("${env.BUILD_ID}")
                 }
             }
         }
